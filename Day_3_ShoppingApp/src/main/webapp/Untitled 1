@@ -1,0 +1,31 @@
+Day 3 
+Assignment :
+1. Implement the code provided in Class
+2. Modify the code for Category, User and Product using DAO
+3. Implement the Admin section to Add Category, Add Product and Update Category
+
+User :-
+authenticate👌
+create user
+change pass
+get user details
+
+Admin
+add category
+add product
+update category
+update product ❌
+
+private HashMap<String,String> namePass = new HashMap<>(Map.of(
+		    "saad", "saad@123",
+		    "soham", "soham@123",
+		    "ritesh", "ritesh@123",
+		    "vishal", "vishal@123"
+		));
+		
+productName
+productDescription
+productPrice
+productImageUrl
+
+select * from products where categoryId = ?		
