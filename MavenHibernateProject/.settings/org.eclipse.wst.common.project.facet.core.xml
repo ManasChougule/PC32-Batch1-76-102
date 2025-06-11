@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <runtime name="apache-tomcat-11.0.4"/>
+  <installed facet="java" version="17"/>
+  <installed facet="jst.web" version="6.1"/>
+</faceted-project>
