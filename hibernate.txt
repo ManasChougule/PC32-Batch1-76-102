@@ -1,0 +1,1 @@
+Great question! In Hibernate, a detached entity is an object that was once associated with a Hibernate session but is now outside of it—meaning it's not actively managed by Hibernate anymore.
