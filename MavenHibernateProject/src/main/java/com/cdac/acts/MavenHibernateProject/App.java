@@ -65,10 +65,10 @@ public class App
         	}
         }
         finally {
-        	if(hibernateSession != null) {
-        		hibernateSession.close();
-        	}
-        	
+//        	if(hibernateSession != null) {
+//        		hibernateSession.close();
+//        	}
+//        	
         	if(hibernateFactory != null) {
         		hibernateFactory.close();
         	}

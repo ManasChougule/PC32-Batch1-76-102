@@ -1,6 +1,23 @@
 package com.cdac.acts.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.NamedNativeQueries;
+import jakarta.persistence.NamedNativeQuery;
 
+@Entity
+//@NamedQueries({
+//    @NamedQuery(name = "getAllUsers", query = "FROM User"),
+//    @NamedQuery(name = "getUserByName", query = "FROM User WHERE name = :uname"),
+//    @NamedQuery(name = "getUserColumns", query = "SELECT name, email FROM User WHERE name = :uname")
+//})
+
+@NamedNativeQueries({
+    @NamedNativeQuery(name = "getAllUsersNative", query = "SELECT * FROM users", resultClass = User.class),
+    @NamedNativeQuery(name = "getUserByNameNative", query = "SELECT * FROM users WHERE name = :uname", resultClass = User.class),
+    @NamedNativeQuery(name = "getUserColumnsNative", query = "SELECT name, email FROM users WHERE name = :uname", resultClass = Object[].class)
+})
 public class User {
 	private String name;
 	private String password;
