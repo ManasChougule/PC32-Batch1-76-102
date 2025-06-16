@@ -19,15 +19,16 @@ public class App
     public static void main( String[] args )
     {
         try(AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfigurations.class)) {
-        	User amazonUser = context.getBean(User.class);
-        	User facebookUser = context.getBean(User.class);
-        	System.out.println("Amazon User: " + amazonUser);
-        	System.out.println("Facebook User: " + facebookUser);
+//        	User amazonUser = context.getBean(User.class);
+//        	User facebookUser = context.getBean(User.class);
+//        	System.out.println("Amazon User: " + amazonUser);
+//        	System.out.println("Facebook User: " + facebookUser);
         	
-        	Account amazonAccount = new AmazonAccount();
+//        	Account amazonAccount = new AmazonAccount(); // don't  programmatically create, use bean present in spring container
+        	Account amazonAccount =  context.getBean(AmazonAccount.class);
         	System.out.println("Amazon Account Created: " + amazonAccount.getUserAssociatedWithAccount());
-        	
-        	Account facebookAccount = new FacebookAccount();
+        
+        	Account facebookAccount =  context.getBean(FacebookAccount.class);
         	System.out.println("Facebook Account Created: " + facebookAccount.getUserAssociatedWithAccount());
         }
         catch(Exception e){

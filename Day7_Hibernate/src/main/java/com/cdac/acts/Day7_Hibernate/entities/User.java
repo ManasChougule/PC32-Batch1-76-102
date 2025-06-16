@@ -87,10 +87,10 @@ public class User {
 		this.city = city;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "User [username=" + username + ", password=" + password + ", email=" + email + ", name=" + name
-//				+ ", city=" + city + "]";
-//	}
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", email=" + email + ", name=" + name
+				+ ", city=" + city + ", hashCode=" + this.hashCode() + "]";
+	}
 
 }
