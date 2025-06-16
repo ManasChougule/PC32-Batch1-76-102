@@ -6,13 +6,17 @@ import com.cdac.acts.Day7_Hibernate.entities.User;
 
 public class FacebookAccount implements Account {
 
-	@Autowired
 	private User objUser;
 	
 
-	public FacebookAccount(User objUser) {
-		super();
-		this.objUser = objUser;
+//	public FacebookAccount(User objUser) {
+//		super();
+//		this.objUser = objUser;
+//	}
+	
+	@Autowired
+	public void setUser(User user) {
+		objUser=user;
 	}
 
 	@Override

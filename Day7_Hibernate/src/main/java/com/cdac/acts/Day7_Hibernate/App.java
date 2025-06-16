@@ -47,7 +47,9 @@ public class App
 
             // Create Amazon User dynamically
             User amazonUser = context.getBean(User.class, amazonUsername, amazonPassword, amazonEmail, amazonName, amazonCity);
-            Account amazonAccount = new AmazonAccount(amazonUser); 
+//            Account amazonAccount = new AmazonAccount(amazonUser);
+            Account amazonAccount = context.getBean(AmazonAccount.class);
+            amazonAccount.setUser(amazonUser);
             System.out.println("Amazon Account Created: " + amazonAccount.getUserAssociatedWithAccount());
 
             // Get details for Facebook Account
@@ -60,7 +62,9 @@ public class App
 
             // Create Facebook User dynamically
             User facebookUser = context.getBean(User.class, facebookUsername, facebookPassword, facebookEmail, facebookName, facebookCity);
-            Account facebookAccount = new FacebookAccount(facebookUser); 
+//            Account facebookAccount = new FacebookAccount(facebookUser); 
+            Account facebookAccount = context.getBean(FacebookAccount.class);
+            facebookAccount.setUser(facebookUser);
             System.out.println("Facebook Account Created: " + facebookAccount.getUserAssociatedWithAccount());
             
         }

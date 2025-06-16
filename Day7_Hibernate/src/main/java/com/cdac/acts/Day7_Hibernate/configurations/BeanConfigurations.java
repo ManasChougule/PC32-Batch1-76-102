@@ -43,13 +43,23 @@ public class BeanConfigurations {
 //		return new User();
 //	}
 	
+//	@Bean
+//	public Account AmazonAccount(User user) {
+//		return new AmazonAccount(user);
+//	}
+//	
+//	@Bean
+//	public Account FacebookAccount(User user) {
+//		return new FacebookAccount(user);
+//	}
+	
 	@Bean
-	public Account AmazonAccount(User user) {
-		return new AmazonAccount(user);
+	public Account AmazonAccount() {
+		return new AmazonAccount();
 	}
 	
 	@Bean
-	public Account FacebookAccount(User user) {
-		return new FacebookAccount(user);
+	public Account FacebookAccount() {
+		return new FacebookAccount();
 	}
 }
