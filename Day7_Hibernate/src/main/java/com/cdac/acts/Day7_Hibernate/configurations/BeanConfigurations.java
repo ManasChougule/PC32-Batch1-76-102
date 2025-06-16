@@ -44,12 +44,12 @@ public class BeanConfigurations {
 //	}
 	
 	@Bean
-	public Account AmazonAccount() {
-		return new AmazonAccount();
+	public Account AmazonAccount(User user) {
+		return new AmazonAccount(user);
 	}
 	
 	@Bean
-	public Account FacebookAccount() {
-		return new FacebookAccount();
+	public Account FacebookAccount(User user) {
+		return new FacebookAccount(user);
 	}
 }
