@@ -1,7 +1,7 @@
 package com.cdac.constants;
 
 public class ShoppingAppConstants {
-	public static final String URL = "jdbc:mysql://localhost:3306/user";
+	public static final String URL = "jdbc:mysql://appdb:4000/user";
 	public static final String USERNAME = "root";
 	public static final String PASSWORD = "cdac";
 	public static final String JDBCDRIVER = "com.mysql.cj.jdbc.Driver";
