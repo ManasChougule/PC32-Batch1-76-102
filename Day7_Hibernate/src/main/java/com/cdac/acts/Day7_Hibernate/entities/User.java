@@ -1,5 +1,7 @@
 package com.cdac.acts.Day7_Hibernate.entities;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -85,5 +87,10 @@ public class User {
 		this.city = city;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "User [username=" + username + ", password=" + password + ", email=" + email + ", name=" + name
+//				+ ", city=" + city + "]";
+//	}
 
 }

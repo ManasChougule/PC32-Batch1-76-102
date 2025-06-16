@@ -19,10 +19,10 @@ public class App
     public static void main( String[] args )
     {
         try(AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfigurations.class)) {
-//        	User amazonUser = context.getBean(User.class);
-//        	User facebookUser = context.getBean(User.class);
-//        	System.out.println("Amazon User: " + amazonUser);
-//        	System.out.println("Facebook User: " + facebookUser);
+        	User amazonUser = context.getBean(User.class);
+        	User facebookUser = context.getBean(User.class);
+        	System.out.println("Amazon User: " + amazonUser);
+        	System.out.println("Facebook User: " + facebookUser);
         	
         	Account amazonAccount = new AmazonAccount();
         	System.out.println("Amazon Account Created: " + amazonAccount.getUserAssociatedWithAccount());

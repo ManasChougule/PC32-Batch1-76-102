@@ -8,7 +8,7 @@ import com.cdac.acts.Day7_Hibernate.entities.User;
 @Component
 public class AmazonAccount implements Account {
 
-	@Autowired
+	@Autowired(required = true)
 	private User objUser;
 
 	@Override
@@ -20,7 +20,7 @@ public class AmazonAccount implements Account {
 
 	@Override
 	public User getUserAssociatedWithAccount() {
-		return new User();
+		return objUser;
 	}
 
 }

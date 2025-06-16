@@ -18,7 +18,7 @@ public class FacebookAccount implements Account {
 
 	@Override
 	public User getUserAssociatedWithAccount() {
-		return new User(); // Return a new User object for now
+		return objUser; 
 	}
 
 }
