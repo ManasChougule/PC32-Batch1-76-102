@@ -1,5 +1,6 @@
 package controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,12 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dao.UserDao;
 import entity.User;
 
 
 @Controller
 public class LoginController {
 
+	
+	@Autowired
+	UserDao userDao;
+	
 	// This method will handle the login requests
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void showLoginForm(Model model) {
@@ -32,11 +38,17 @@ public class LoginController {
 //			return "login"; // Return to login page on failure
 //		}
 
-		if(objUser != null && objUser.getUsername().equals("user1") && objUser.getPassword().equals("user1")) {
-			return new ModelAndView("welcome", "msg", "welcome to home page");
-		}else {
-			return new ModelAndView("failure", "msg", "invalid authentication");
-		}
+//		if(objUser != null && objUser.getUsername().equals("user1") && objUser.getPassword().equals("user1")) {
+//			return new ModelAndView("welcome", "msg", "welcome to home page");
+//		}else {
+//			return new ModelAndView("failure", "msg", "invalid authentication");
+//		}
+		
+        if (userDao.validateUser(objUser)) {
+            return new ModelAndView("welcome", "msg", "Welcome, " + objUser.getUsername());
+        } else {
+            return new ModelAndView("failure", "msg", "Invalid authentication");
+        }
 		
 	}
 
