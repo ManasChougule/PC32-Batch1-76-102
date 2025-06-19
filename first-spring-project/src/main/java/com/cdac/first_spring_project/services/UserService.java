@@ -10,4 +10,5 @@ import com.cdac.first_spring_project.dtos.UserDTO;
 public interface UserService {
 	public UserDTO getUserById(Integer id);
 	public List<UserDTO> getAllUsers();
+	public boolean createUser(UserDTO dto);
 }

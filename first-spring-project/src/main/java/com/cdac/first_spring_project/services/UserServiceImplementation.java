@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +37,18 @@ public class UserServiceImplementation implements UserService {
 			return new UserDTO(user.getId(), user.getUsername(), user.getFirstname(), user.getLastname(), user.getEmail(), user.getCity());
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean createUser(UserDTO dto) {
+		try {
+			User user = new User();
+			BeanUtils.copyProperties(dto, user);
+			userRepo.save(user);
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

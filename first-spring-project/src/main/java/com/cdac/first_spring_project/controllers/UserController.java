@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,11 @@ public class UserController {
 		@GetMapping("/getUserById")
 		public UserDTO getUserById(@RequestParam("user_id") Integer userId) {
 			return userService.getUserById(userId);
+		}
+		
+		@PostMapping("/addUser")
+		public boolean createUser(@RequestBody UserDTO dto) {
+			return userService.createUser(dto);
 		}
 		
 }

@@ -2,11 +2,15 @@ package com.cdac.first_spring_project.dtos;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Component
 public class UserDTO {
 	private Integer id;
 	
 	private String username;
+	
+	private String password;
 	
 	private String firstname;
 	
@@ -28,7 +32,26 @@ public class UserDTO {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
+		this.city = city; 
+	}
+	public UserDTO(Integer id, String username, String password, String firstname, String lastname, String email, String city) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
 		this.city = city;
+		this.password = password; // need to accept during add user
+	}
+
+	@JsonIgnore
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -79,10 +102,5 @@ public class UserDTO {
 		this.city = city;
 	}
 
-	@Override
-	public String toString() {
-		return "UserDTO [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", email=" + email + ", city=" + city + "]";
-	}
 	
 }
