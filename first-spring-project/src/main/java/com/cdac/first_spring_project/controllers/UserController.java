@@ -1,6 +1,7 @@
 package com.cdac.first_spring_project.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -45,8 +46,8 @@ public class UserController {
 			return userService.getUsersOnPage(pageNo, pageSize);
 		}
 		
-		@PatchMapping("/updateUser")
-		public boolean partialUpdate() {
-			return true;
+		@PatchMapping("/partialUpdate/{id}")
+		public boolean partialUpdate(@PathVariable("id") Integer id, @RequestBody Map<String, Object> updates ) {
+			return userService.partialUpdate(id, updates);
 		}
 }

@@ -15,5 +15,5 @@ public interface UserService {
 	public List<UserDTO> getAllUsers();
 	public List<UserDTO> getUsersOnPage(int pageNo, int pageSize); 
 	public boolean createUser(UserDTO dto);
-	public boolean updateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates);
+	public boolean partialUpdate(Integer id, Map<String, Object> updates);
 }

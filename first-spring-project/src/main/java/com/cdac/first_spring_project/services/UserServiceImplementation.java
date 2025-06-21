@@ -75,20 +75,19 @@ public class UserServiceImplementation implements UserService {
 	}
 	
 	
-//	@Override
-	@PatchMapping("/users/{id}")
-	public boolean updateUser(@PathVariable Long id, @RequestBody Map<String, Object> updates){
+	@Override
+	public boolean partialUpdate(Integer id,  Map<String, Object> updates){
 		try {	    
-			
-			User user = userRepo.findById(id).orElseThrow(() -> new Exception("User Resource not found"));
 
+			User user = userRepo.findById(id).orElseThrow(() -> new Exception("User Resource not found"));
 		    updates.forEach((key, value) -> {
 		        switch (key) {
+			        case "id" -> user.setId((Integer) value);
+			        case "username" -> user.setUsername((String) value);
 		            case "email" -> user.setEmail((String) value);
 		            case "firstname" -> user.setFirstname((String) value);
 		            case "lastname" -> user.setLastname((String) value);
 		            case "city" -> user.setCity((String) value);
-		            // Add more allowed fields here
 		            default -> throw new IllegalArgumentException("Field '" + key + "' cannot be updated.");
 		        }
 		    });
